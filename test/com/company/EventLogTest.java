@@ -56,5 +56,17 @@ public class EventLogTest {
         eventlog.addEvent(event);
     }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void eventActionIsNotRecognizedExpectFalse() {
+        //arrange
+        EventLog eventlog = new EventLog();
+        Event event = new Event();
+        event.setName("Mozart Concert");
+        event.setAction("playing the violin");
+
+        //act
+        eventlog.addEvent(event);
+    }
+
 
 }
