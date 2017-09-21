@@ -8,7 +8,7 @@ public class EventLog {
 
     private List<Event> eventList = new ArrayList<>();
     public boolean addEvent(Event event) {
-        if (event == null) {
+        if (event == null || event.name == null || event.action == null) {
             throw new IllegalArgumentException();
         }
     };
