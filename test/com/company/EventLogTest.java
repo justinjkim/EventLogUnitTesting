@@ -42,7 +42,18 @@ public class EventLogTest {
 
         //act
         eventlog.addEvent(event);
+    }
 
+    @Test (expected = IllegalArgumentException.class)
+    public void eventActionIsF2FExpectTrue() {
+        //arrange
+        EventLog eventlog = new EventLog();
+        Event event = new Event();
+        event.setName("Eharmony");
+        event.setAction("Face2Face");
+
+        //act
+        eventlog.addEvent(event);
     }
 
 
