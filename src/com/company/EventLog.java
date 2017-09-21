@@ -10,6 +10,10 @@ public class EventLog {
     public boolean addEvent(Event event) {
         if (event == null || event.name == null || event.action == null) {
             throw new IllegalArgumentException();
+        } else {
+            System.out.println(event);
+            eventList.add(event);
+            return true;
         }
     };
     public int getNumEvents();
