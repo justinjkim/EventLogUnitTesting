@@ -56,7 +56,7 @@ public class EventLogTest {
         eventlog.addEvent(event);
     }
 
-    @Test (expected = IllegalArgumentException.class)
+    @Test
     public void eventActionIsF2FExpectTrue() {
         //arrange
         EventLog eventlog = new EventLog();
@@ -66,6 +66,54 @@ public class EventLogTest {
 
         //act
         eventlog.addEvent(event);
+
+        //assert
+        assertTrue("Face2Face Test has passed", event.action == "Face2Face");
+    }
+
+    @Test
+    public void eventActionIsPhonecallExpectTrue() {
+        //arrange
+        EventLog eventlog = new EventLog();
+        Event event = new Event();
+        event.setName("Date Night");
+        event.setAction("PhoneCall");
+
+        //act
+        eventlog.addEvent(event);
+
+        //assert
+        assertTrue("PhoneCall Test has passed", event.action == "PhoneCall");
+    }
+
+    @Test
+    public void eventActionIsTextMessagingExpectTrue() {
+        //arrange
+        EventLog eventlog = new EventLog();
+        Event event = new Event();
+        event.setName("Bono Tickets Raffle");
+        event.setAction("TextMessaging");
+
+        //act
+        eventlog.addEvent(event);
+
+        //assert
+        assertTrue("TextMessaging Test has passed", event.action == "TextMessaging");
+    }
+
+    @Test
+    public void eventActionIsUnknownExpectTrue() {
+        //arrange
+        EventLog eventlog = new EventLog();
+        Event event = new Event();
+        event.setName("What?");
+        event.setAction("Unknown");
+
+        //act
+        eventlog.addEvent(event);
+
+        //assert
+        assertTrue("Unknown Test has passed", event.action == "Unknown");
     }
 
     @Test (expected = IllegalArgumentException.class)
@@ -74,7 +122,7 @@ public class EventLogTest {
         EventLog eventlog = new EventLog();
         Event event = new Event();
         event.setName("Mozart Concert");
-        event.setAction("playing the violin");
+        event.setAction("CHICKEN");
 
         //act
         eventlog.addEvent(event);
