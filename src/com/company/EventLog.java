@@ -11,7 +11,7 @@ public class EventLog {
     public boolean addEvent(Event event) {
         if (event == null || event.name == null || event.action == null) {
             throw new IllegalArgumentException();
-        } else if (!event.action.equals("Face2Face") || !event.action.equals("PhoneCall") || !event.action.equals("TextMessaging") || !event.action.equals("Unknown")) {
+        } else if (!event.action.equals("Face2Face") && !event.action.equals("PhoneCall") && !event.action.equals("TextMessaging") && !event.action.equals("Unknown")) {
             throw new IllegalArgumentException("Action type must be one of following: Face2Face, PhoneCall, TextMessaging, Unknown");
         }
         else {
