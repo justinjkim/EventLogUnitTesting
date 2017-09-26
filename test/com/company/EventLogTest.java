@@ -18,7 +18,7 @@ public class EventLogTest {
         //assert
     }
 
-    @Test //(expected = IllegalArgumentException.class)
+    @Test(expected = IllegalArgumentException.class)
     public void eventNameIsNullExpectFalse() {
         //arrange
         EventLog eventlog = new EventLog();
@@ -29,7 +29,7 @@ public class EventLogTest {
         eventlog.addEvent(event);
 
         //assert
-        assertFalse("You cannot have an event without a name", event.name == null);
+        //assertFalse("You cannot have an event without a name", event.name == null);
         // test comes up as failed....I think that's good? because from the test case I provided, I want it to fail
     }
 
@@ -39,6 +39,18 @@ public class EventLogTest {
         EventLog eventlog = new EventLog();
         Event event = new Event();
         event.setName("Fundraiser Gala");
+
+        //act
+        eventlog.addEvent(event);
+    }
+
+    @Test
+    public void eventCorrectlyAddedExpectTrue() {
+        //arrange
+        EventLog eventlog = new EventLog();
+        Event event = new Event();
+        event.setName("BBQ at the Beach");
+        event.setAction("Face2Face");
 
         //act
         eventlog.addEvent(event);
